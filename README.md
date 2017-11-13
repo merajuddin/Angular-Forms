@@ -1,5 +1,5 @@
 # AngularForms
-
+Simple Angular Application using the latest version of Angular 5.0.0 for development. Includes fully funcitonal client side Angular forms.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.
 
 ## Development server
