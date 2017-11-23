@@ -8,6 +8,8 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  languages = ["English", "Spanish", "Other"];
+
   constructor() { }
 
   ngOnInit() {

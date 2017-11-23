@@ -1,3 +1,41 @@
-<p>
-  home works!
-</p>
+<div class="container">
+  <h4>Employee Form</h4>
+  <form #form="ngForm" novalidate>
+
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text" class="form-control" name="firstname" ngModel required>
+    </div>
+    <div class="form-group">
+      <label>Last Name</label>
+      <input type="text" class="form-control" required name="lasttname" ngModel>
+    </div>
+
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" name="is-full-time" ngModel> Full Time Employee
+      </label>
+    </div>
+
+    <label>Payment Type</label>
+    <div class="radio">
+      <label>
+        <input type="radio" name="pay-type" value="w2" checked> W2
+      </label>
+    </div>
+    <div class="radio">
+      <label>
+        <input type="radio" name="pay-type" value="1099"> 1099
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label>Primary Language</label>
+      <select class="form-control">
+        <option *ngFor="let lang of languages">{{ lang }}</option>
+      </select>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Ok</button>
+  </form>
+</div>
