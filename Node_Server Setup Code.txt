@@ -1,0 +1,57 @@
+Node Server Setup Code:
+
+Create a new Project in a new Directory.
+Run        NPM init
+Then      NPM install formidable
+
+Package.json file:
+{
+  "name": "node_server",
+  "version": "1.0.0",
+  "description": "Simple Node server for interacting with form data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mohammed Merajuddin",
+  "license": "ISC"
+}
+
+Create a new file named: server.js in root
+
+Server.js file:
+var http = require('http');
+var formidable = require("formidable");
+var util = require('util');
+
+var server = http.createServer(function(req, res){
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, x-Requested-With, Content-Type, Accept');
+    if(req.method.toLowerCase() == 'post'){
+        processForm(req, res);
+        return;
+    }
+    res.end();
+});
+function processForm(req, res){
+    var form = new formidable.IncomingForm();
+    form.parse(req, function(err, fields){
+        res.writeHead(200, {
+            'content-type': 'text/plain'
+        });
+        var data = JSON.stringify({
+            fields: fields
+        });
+        res.end(data);
+        console.log('posted fields:\n');
+        console.log(data);
+    });
+}
+var port = 3100;
+server.listen(port);
+console.log("server listening on port " + port);
+
+//Thats it.
+
+Save it. Open console, Navigate to the Project directory and RUN: node server.js
+DONE
