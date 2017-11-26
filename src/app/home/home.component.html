@@ -1,6 +1,6 @@
 <div class="container">
   <h4>Employee Form</h4>
-  <form #form="ngForm" novalidate>
+  <form #form="ngForm" (submit)="submitForm(form)" novalidate>
 <!-- FirstName field -->
     <div class="form-group" [class.has-error]="firstName.invalid && firstName.touched">
       <label class="control-label">First Name</label>
