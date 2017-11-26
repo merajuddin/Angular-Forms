@@ -10,8 +10,17 @@ import { Employee } from '../models/employee.model';
 export class HomeComponent{
 
   languages = ["English", "Spanish", "Other"];
+  hasPrimaryLanguageError: boolean = false;
 
-  model = new Employee('Mohammed', 'Merajuddin', true, 'w2', 'English');
+  model = new Employee('', '', true, 'w2', 'default');
+
+  validatePrimaryLanguage(value){
+    if(value === 'default'){
+      this.hasPrimaryLanguageError = true;
+    }else{
+      this.hasPrimaryLanguageError = false;
+    }
+  }
 
 
 
