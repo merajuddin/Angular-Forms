@@ -1,4 +1,5 @@
-<div class="container">
+<h3 *ngIf="languages.length == 0">Loading form.......</h3>
+<div class="container" *ngIf="languages.length > 0">
   <h4>Employee Form</h4>
   <form #form="ngForm" (submit)="submitForm(form)" novalidate>
 <!-- FirstName field -->

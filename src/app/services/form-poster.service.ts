@@ -14,10 +14,23 @@ export class FormPoster {
         return body.fields || { };
     }
 
+    extractLanguages(res: Response){
+        let body = res.json();
+        return body.data || { };
+    }
+
+
     private handleError(error: any){
-        console.error('post error: ' + error);
+        console.error('error: ' + error);
         return Observable.throw(error.statusText);
     }
+
+    getLanguages():Observable<any>{
+        return this.http.get('http://localhost:3100/getlanguages')
+        .map(this.extractLanguages)
+        .catch(this.handleError)
+    }
+    
     postEmployeeForm(employee: Employee):Observable<any>{
         let body = JSON.stringify(employee);
         let headers = new Headers({ 'Content-type': 'application/json' });
